@@ -1,24 +1,38 @@
 <template>
   <div id="app">
-    <router-view></router-view>
+    <Header id="header"></Header>
+    <main id="main">
+      <router-view></router-view>
+    </main> 
+    <Footer id="footer"></Footer>
   </div>
 </template>
 
 <script>
-import Index from './components/Index'
+import Header from './components/Header'
+import Footer from './components/Footer'
 
 export default {
   name: 'app',
   components: {
-    Index
+    Header,
+    Footer
   }
 }
 </script>
 
-<style>
+<style lang="less">
+@import url('./assets/common.less');
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  #main {
+    flex: 1;
+  }
+  #footer {
+    background: @footColor;
+  }
 }
+
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div class="index">
-    注册页面
+    注册
   </div>
 </template>
 <script>
