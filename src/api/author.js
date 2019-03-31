@@ -5,7 +5,6 @@ const url = {
   login: '/auth/login',
   logout: '/auth/logout',
   get_info: '/auth'
-
 }
 
 export default {

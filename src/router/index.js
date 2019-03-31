@@ -21,37 +21,37 @@ export default new Router({
     },
     {
       path: '/login',
-      name: 'HelloWorld',
+      name: 'login',
       component: Login
     },
     {
       path: '/create',
-      name: 'HelloWorld',
+      name: 'create',
       component: Create
     },
     {
       path: '/details',
-      name: 'HelloWorld',
+      name: 'details',
       component: Details
     },
     {
       path: '/edit',
-      name: 'HelloWorld',
+      name: 'edit',
       component: Edit
     },
     {
       path: '/register',
-      name: 'HelloWorld',
+      name: 'register',
       component: Register
     },
     {
       path: '/user',
-      name: 'HelloWorld',
+      name: 'user',
       component: User
     },
     {
       path: '/my',
-      name: 'HelloWorld',
+      name: 'my',
       component: My
     },
   ]
