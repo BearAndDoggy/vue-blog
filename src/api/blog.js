@@ -1,4 +1,4 @@
-import request from '../request/request-axios'
+import request from '../helpers/request-axios'
 
 const url = {
   blog_list: '/blog',

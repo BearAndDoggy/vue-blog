@@ -1,5 +1,5 @@
 <template>
-  <div class="header">
+  <div :class="[{login: isLogin},{nologin: !isLogin}, 'header']">
     <template v-if="!isLogin">
       <h1>My Blog</h1>
       <p>分享你的知识，汇聚精品博客</p>
@@ -15,8 +15,13 @@
     <template v-if="isLogin">
       <div class="wrap">
         <h1>My Blog</h1>
+        <router-link to="/create">
+          <i class="el-icon-edit-outline"></i>
+        </router-link>
         <img :src="user.avatar" :alt="user.username">
         <button @click="onLogout">注销</button>
+        <router-link to="/my"><button>我的</button></router-link>
+        
       </div>
     </template>
   </div>
@@ -45,7 +50,9 @@ export default {
       "logout"
     ]),
     onLogout(){
-      this.logout()
+      this.logout().then(()=>{
+        this.$router.push({path: '/login'})
+      })
     }
   }
 
@@ -54,7 +61,7 @@ export default {
 <style lang="less" scoped>
 @import "../assets/base.less";
 
-.header {
+.header.nologin {
   background: @bgGradient;
   display: flex;
   align-items: center;
@@ -77,8 +84,15 @@ export default {
   }
 }
 
+.header.login {
+  background: @bgGradient;
+  .el-icon-edit-outline {
+    font-size: 30px;
+    color: antiquewhite;
+  }
+}
 @media (max-width: 500px) {
-.header {
+.header.login {
   h1 {
     margin-top: 10px;
     font-size: 30px;

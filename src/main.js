@@ -5,8 +5,12 @@ import App from './App'
 import router from './router'
 import './plugins/element.js'
 import store from './store/index'
+import utils from './helpers/utils'
+
 
 Vue.config.productionTip = false
+
+Vue.use(utils)
 
 /* eslint-disable no-new */
 new Vue({

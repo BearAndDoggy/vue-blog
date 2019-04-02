@@ -15,6 +15,8 @@
 </template>
 <script>
 import {mapActions} from 'vuex'
+import store from '../store/index.js'
+
 export default {
   name: '',
   data(){
@@ -28,7 +30,7 @@ export default {
     onLogin(){
       this.login({username: this.username, password: this.password})
       .then(()=>{
-        this.$router.push({path: '/'})
+        this.$router.push({path: this.$route.query.redirect || '/'})
       })
     }
   }
