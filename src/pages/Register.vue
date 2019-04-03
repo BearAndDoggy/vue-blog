@@ -37,7 +37,7 @@ export default {
 </script>
 <style lang="less" scoped>
 .register {
-  margin-top: 5vw;
+  margin-top: 3vw;
   .form {
     color: black;
     width: 20vw;
@@ -48,7 +48,7 @@ export default {
     label {
       display: inline-block;
       .el-input {
-        margin: 10px 0;
+        margin: 15px 0;
       }
     }
     .el-button {

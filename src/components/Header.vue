@@ -14,14 +14,19 @@
     </template>
     <template v-if="isLogin">
       <div class="wrap">
-        <h1>My Blog</h1>
-        <router-link to="/create">
-          <i class="el-icon-edit-outline"></i>
-        </router-link>
-        <img :src="user.avatar" :alt="user.username">
-        <button @click="onLogout">注销</button>
-        <router-link to="/my"><button>我的</button></router-link>
-        
+        <div class="left"><router-link to="/"><h1>Share Your Thoughts</h1></router-link></div>
+        <div class="right">
+          <router-link to="/create">
+            <i class="el-icon-edit-outline"></i>
+          </router-link>
+          <div class="avatar">
+            <img :src="user.avatar" :alt="user.username">
+            <ul>
+              <li><router-link to="/my">我的</router-link></li>
+              <li @click="onLogout">注销</li>
+            </ul>
+          </div>     
+        </div>
       </div>
     </template>
   </div>
@@ -51,9 +56,10 @@ export default {
     ]),
     onLogout(){
       this.logout().then(()=>{
-        this.$router.push({path: '/login'})
+        this.$router.push({path: '/'})
       })
-    }
+    },
+
   }
 
 }
@@ -66,6 +72,7 @@ export default {
   display: flex;
   align-items: center;
   flex-direction: column;
+  margin-bottom: 20px;
   h1 {
     margin-top: 30px;
     font-size: 50px;
@@ -85,14 +92,64 @@ export default {
 }
 
 .header.login {
-  background: @bgGradient;
-  .el-icon-edit-outline {
-    font-size: 30px;
-    color: antiquewhite;
+  min-height: 90px;
+  .wrap {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    background: @bgGradient;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    padding: 15px 20px;
+    .left {
+      margin-left: 30px;
+    }
+    .right {
+      display: flex;
+      align-items: center;
+      margin-right: 50px;
+      i {
+        font-size: 30px;
+        color: white;
+        margin-right: 30px;
+      }
+      .avatar {
+        position: relative;
+        &:hover ul{
+          display: block;
+        }
+        ul {
+          display: none;
+          border: 1px solid #999;
+          position: absolute;
+          top: 100%;
+          li {
+            white-space: nowrap;
+            text-align: center;
+            background: white;
+            color: black;
+            padding: 10px 15px;
+            &:hover {
+              cursor: pointer;
+              background: rgb(245, 245, 245);
+            }
+          }
+        }
+        img {
+          border-radius: 50%;
+          width: 35px;
+        }
+      }
+    }
   }
+
 }
 @media (max-width: 500px) {
 .header.login {
+  min-height: 160px;
   h1 {
     margin-top: 10px;
     font-size: 30px;

@@ -30,6 +30,7 @@ export default {
   justify-content: space-between;
   #main {
     flex: 1;
+    position: relative;
   }
   #footer {
     background: @footColor;

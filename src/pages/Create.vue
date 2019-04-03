@@ -14,7 +14,9 @@
       <div class="atIndex">
         <span>是否展示到首页：</span><el-switch v-model="atIndex" active-color="#13ce66" inactive-color="#ff4949"></el-switch>
       </div>
-      <el-button type="primary" round @click="commitContent">提交文章</el-button>
+      <div>
+        <el-button type="primary" round @click="commitContent">提交文章</el-button>
+      </div>
     </div>
   </div>
 </template>
@@ -57,16 +59,17 @@ export default {
         text-align: center;
       }
       label {
-        display: inline-block;
         font-weight: 700;
         margin-bottom: 10px;
         .el-textarea {
           margin-top: 5px;
         }
       }
+      .atIndex {
+        margin-top: 10px;
+      }
       .el-button {
-        margin-top: 30px;
-        width: 100px;
+        margin-top: 20px;
       }     
     }
   }
